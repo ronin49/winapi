@@ -7,6 +7,6 @@ namespace my {
 		IUIAutomationValuePattern* val;
 		my::WindowManager& wm;
 	private:
-		void initSearchBar(IUIAutomationElement*);
+		bool initSearchBar(IUIAutomationElement*);
 	};
 }

@@ -1,5 +1,6 @@
 #include "ReactOnChange.h"
 #include <wchar.h>
+#include <stdio.h>
 my::ReactOnChange::ReactOnChange(my::EdgeSearchBar& url) : url(url) {}
 HRESULT STDMETHODCALLTYPE my::ReactOnChange::HandleAutomationEvent(
 	IUIAutomationElement* p,
@@ -18,6 +19,7 @@ HRESULT STDMETHODCALLTYPE my::ReactOnChange::HandleAutomationEvent(
 		wcscpy(modified+google_len, test);
 		wcscpy(modified + google_len + test_len, pos + google_len);
 		url.val->SetValue(modified);
+		printf("changed url: %S\n\n", modified);
 	}
 	return S_OK;
 }
