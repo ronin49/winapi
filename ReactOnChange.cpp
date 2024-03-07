@@ -15,9 +15,9 @@ HRESULT STDMETHODCALLTYPE my::ReactOnChange::HandleAutomationEvent(
 	wchar_t* pos = wcsstr(current, google);
 	if (pos && !wcsstr(current, test)) {
 		wchar_t* modified = new wchar_t[wcslen(current) + test_len + 1];
-		wcscpy(modified, google);
-		wcscpy(modified+google_len, test);
-		wcscpy(modified + google_len + test_len, pos + google_len);
+		wcscpy_s(modified, wcslen(current) + test_len + 1, google);
+		wcscpy_s(modified+google_len, wcslen(current) + test_len + 1,test);
+		wcscpy_s(modified + google_len + test_len, wcslen(current) + test_len + 1, pos + google_len);
 		url.val->SetValue(modified);
 		printf("changed url: %S\n\n", modified);
 	}
